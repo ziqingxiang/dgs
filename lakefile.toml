@@ -1,0 +1,23 @@
+name = "DGSLean"
+version = "0.1.0"
+defaultTargets = ["DGS", "Challenge", "Solution"]
+
+[leanOptions]
+autoImplicit = false
+relaxedAutoImplicit = false
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4"
+rev = "288bdd34968b17eb56f9e58363e1f5587cefbdec"
+
+[[lean_lib]]
+name = "DGS"
+
+[[lean_lib]]
+name = "Challenge"
+roots = ["Challenge"]
+
+[[lean_lib]]
+name = "Solution"
+roots = ["Solution"]

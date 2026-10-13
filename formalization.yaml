@@ -1,0 +1,154 @@
+version: "v0.4"
+
+project:
+  name: "Almost all graphs are determined by their generalized spectrum"
+  description: >-
+    A complete Lean 4 and Mathlib formalization of the theorem that almost all graphs are determined by their generalized spectrum, which is Haemers' conjecture for the generalized spectrum. The generalized spectrum of a graph is the spectrum of its adjacency matrix A together with the spectrum of the adjacency matrix J - I - A of its complement, and a graph is determined by its generalized spectrum (DGS) if every graph with the same generalized spectrum is isomorphic to it. The main theorem, DGSMain.almost_all_graphs_are_DGS, states that the proportion of the graphs on the vertex set {0, ..., n-1} that are DGS tends to 1 as n tends to infinity; that is, the random graph G(n, 1/2) is DGS with probability tending to one. This is Theorem 1.1 of the accompanying paper, and the formalization contains its whole proof: the reduction to local failures at primes through the rational orthogonal matrices relating generalized cospectral graphs, Seidel switching, Fourier analysis of random symmetric matrices over finite rings, inverse Littlewood-Offord estimates over finite fields, rank estimates for random symmetric matrices modulo primes, and the exclusion of rational factors of the characteristic polynomial of a random symmetric sign matrix with zero diagonal. The results that the paper quotes from the literature are also proved: Kneser's addition theorem, the theorem of Johnson and Newman on generalized cospectral graphs, and the cases used of the theorems of Tao and Vu (a random symmetric sign matrix has simple spectrum) and of O'Rourke and Touri (G(n, 1/2) is controllable), the last two by a new argument based on the methods of the paper. The proof uses only the standard axioms propext, Quot.sound and Classical.choice.
+  authors:
+    - "Ziqing Xiang"
+  license: "Apache-2.0"
+  responsible_maintainers:
+    - "Ziqing Xiang"
+
+classification:
+  arxiv: ["math.CO"]
+  msc2020: ["05C50", "05C80", "15B52", "60B20"]
+
+sources:
+  - title: "Almost all graphs are determined by their generalized spectrum"
+    authors:
+      - "Ziqing Xiang"
+    type: paper
+    id: "arXiv:2610.11047"
+    location: "https://arxiv.org/abs/2610.11047"
+    relationship: formalizes
+    note: >-
+      DGSMain.almost_all_graphs_are_DGS is Theorem 1.1 of this paper, stated for labelled graphs as in the paper, and the development in DGS/ follows the proof of the paper (Sections 2 to 15), with one folder per section.
+    author_endorsement: participated
+  - title: "Are almost all graphs determined by their spectrum?"
+    authors:
+      - "Willem H. Haemers"
+    type: paper
+    location: "Notices of the South African Mathematical Society 47 (2016) 42-45"
+    relationship: background
+    note: >-
+      States the conjecture that almost all graphs are determined by their spectrum. The formalized theorem is the analogue for the generalized spectrum (Haemers' conjecture for the generalized spectrum).
+  - title: "Which graphs are determined by their spectrum?"
+    authors:
+      - "Edwin R. van Dam"
+      - "Willem H. Haemers"
+    type: paper
+    location: "Linear Algebra and its Applications 373 (2003) 241-272"
+    relationship: background
+  - title: "A sufficient condition for a family of graphs being determined by their generalized spectra"
+    authors:
+      - "Wei Wang"
+      - "Cheng-Xian Xu"
+    type: paper
+    location: "European Journal of Combinatorics 27 (2006) 826-840"
+    relationship: background
+    note: >-
+      Arithmetic criteria for a graph to be DGS through the rational orthogonal matrices relating generalized cospectral graphs, the starting point of the approach of the paper.
+  - title: "A note on cospectral graphs"
+    authors:
+      - "Charles R. Johnson"
+      - "Morris Newman"
+    type: paper
+    location: "Journal of Combinatorial Theory, Series B 28 (1980) 96-103"
+    relationship: background
+    note: >-
+      Graphs with the same generalized spectrum are related by a real orthogonal matrix fixing the all-ones vector. The proof uses this theorem, and the formalization proves it (DGS/Ext/JohnsonNewman).
+  - title: "Abschätzung der asymptotischen Dichte von Summenmengen"
+    authors:
+      - "Martin Kneser"
+    type: paper
+    location: "Mathematische Zeitschrift 58 (1953) 459-484"
+    relationship: background
+    note: >-
+      Kneser's addition theorem, used in the proof of the Halász-type estimate of Section 10 of the paper. The formalization proves it (DGS/Ext/Kneser) following DeVos's short proof.
+  - title: "A short proof of Kneser's addition theorem for abelian groups"
+    authors:
+      - "Matt DeVos"
+    type: paper
+    id: "arXiv:1303.3539"
+    location: "https://arxiv.org/abs/1303.3539"
+    relationship: background
+    note: "The proof of Kneser's theorem that the formalization follows."
+  - title: "Random matrices have simple spectrum"
+    authors:
+      - "Terence Tao"
+      - "Van Vu"
+    type: paper
+    location: "Combinatorica 37 (2017) 539-553"
+    relationship: background
+    note: >-
+      The paper quotes Theorem 1.3 of this article in the form that the discriminant of the characteristic polynomial of a uniformly random Seidel matrix vanishes with probability o(1). The formalization proves this case by a different argument (DGS/Ext/TaoVu and DGS/Ext/Cyclic), built on Sections 3, 4 and 10 to 13 of the paper.
+  - title: "On a conjecture of Godsil concerning controllable random graphs"
+    authors:
+      - "Sean O'Rourke"
+      - "Behrouz Touri"
+    type: paper
+    location: "SIAM Journal on Control and Optimization 54 (2016) 3347-3378"
+    relationship: background
+    note: >-
+      The paper quotes Theorem 1.4 of this article: G(n, 1/2) is controllable with probability 1 - o(1). The formalization proves this statement by a different argument (DGS/Ext/ORourkeTouri and DGS/Ext/Cyclic), built on Sections 3, 4 and 10 to 13 of the paper.
+  - title: "Natural graph spectra"
+    authors:
+      - "Ziqing Xiang"
+    type: paper
+    id: "arXiv:2602.00936"
+    location: "https://arxiv.org/abs/2602.00936"
+    relationship: background
+    note: >-
+      Earlier work of the author on the question of van Dam and Haemers whether some natural graph matrix has a spectrum that determines almost all graphs.
+
+related_formalizations: []
+
+status:
+  scope: >-
+    Formalized: Theorem 1.1 of the paper with its complete proof, including the four results that the paper quotes from the literature (Kneser's theorem, the theorem of Johnson and Newman, and the cases used of the theorems of Tao-Vu and O'Rourke-Touri). The statement concerns labelled graphs: for each n it counts the graphs on the vertex set Fin n = {0, ..., n-1}, equivalently the uniformly random graph G(n, 1/2), exactly as Theorem 1.1. The paper remarks after Theorem 1.1 that the same conclusion holds for a uniformly random unlabelled graph, by the theorem of Erdős and Rényi that almost all graphs are asymmetric; this consequence is not formalized. The generalized spectrum is expressed through characteristic polynomials: two graphs on Fin n have the same generalized spectrum when their integer adjacency matrices have the same characteristic polynomial and so do the adjacency matrices of their complements. For real symmetric matrices this is equality of spectra with multiplicities, so the formal definition is the usual notion. Determination by the generalized spectrum quantifies over all graphs on the same vertex set Fin n and asks for a graph isomorphism. Small n are irrelevant to the limit. The proof uses no axioms beyond propext, Quot.sound and Classical.choice, and contains no sorry; Challenge.lean contains one deliberate sorry, the statement placeholder.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: []
+
+automation:
+  methods:
+    - method: agent
+      models:
+        - "Claude Opus 5.5 (Anthropic)"
+      framework: "Claude (Anthropic) agent sessions with a shell, the Lean toolchain and a local build of Mathlib"
+      tool_setup: >-
+        AI-assisted formalization: an AI agent wrote all the Lean code and compiled every file with Lean, under the direction of the author, who set the plan, made the decisions on statements and scope, and reviewed the main statement.
+      cost:
+        wall_time: "about five days"
+        spend_usd: "not tracked"
+        hardware: "cloud workspace with 2 CPUs and 8 GB of memory"
+      prompting_notes: >-
+        The agent followed the paper section by section, stated every numbered result of the paper in Lean before proving it.
+  spend_usd: "not tracked"
+  notes: >-
+    The Lean formalization was produced by an AI agent (Claude, Anthropic) working from the paper under the author's direction; the author chose the formal statement together with the agent and reviewed it. Every Lean file was compiled with all warnings treated as errors, and the kernel replay of all declarations (leanchecker) and Comparator, with Lean's kernel and NanoDa, were run before submission.
+
+fidelity:
+  divergences: >-
+    None known for the statement: DGSMain.almost_all_graphs_are_DGS is Theorem 1.1 of the paper (for labelled graphs, as in the paper). The proof follows the architecture of the paper, but departs from it in places that do not affect the statement: some constants and parameters differ, several arguments are reorganized or replaced by equivalent ones, and the theorems of Tao-Vu and O'Rourke-Touri, which the paper quotes, are proved here by a new argument instead.
+
+review:
+  status: "self-assessed"
+  reviewers:
+    - "Ziqing Xiang"
+  notes: >-
+    The author, who wrote the paper, reviewed the formal statement in Challenge.lean and its definitions. The proofs were checked by Lean, by a kernel replay of all declarations, and by Comparator with Lean's kernel and NanoDa. No independent human review of the Lean proofs has been performed.
+
+alignment:
+  namespace: "DGSMain"
+  statements:
+    - source: "Theorem 1.1"
+      lean: "DGSMain.almost_all_graphs_are_DGS"
+      module: "Challenge"
+      status: "proved"
+      note: >-
+        The proportion of the graphs on Fin n that are DGS tends to 1, which is the probability statement of Theorem 1.1 for G(n, 1/2). The definitions adj, SameGenSpectrum and IsDGS in Challenge.lean express the adjacency matrix, the generalized spectrum through characteristic polynomials, and determination by the generalized spectrum.
+
+acknowledgements: >-
+  Lean 4 and Mathlib; Comparator and the independent kernel NanoDa for the mechanical check.
